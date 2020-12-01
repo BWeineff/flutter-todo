@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 class Auth {
   final FirebaseAuth auth;
@@ -15,32 +14,32 @@ class Auth {
         password: password.trim(),
       );
       return "Success";
-    } on FirebaseAuthException catch(e){
+    } on FirebaseAuthException catch (e) {
       return e.message;
     } catch (e) {
       rethrow;
     }
   }
 
-   Future<String> signIn({String email, String password}) async {
+  Future<String> signIn({String email, String password}) async {
     try {
       await auth.signInWithEmailAndPassword(
         email: email.trim(),
         password: password.trim(),
       );
       return "Success";
-    } on FirebaseAuthException catch(e){
+    } on FirebaseAuthException catch (e) {
       return e.message;
     } catch (e) {
       rethrow;
     }
   }
 
-    Future<String> signOut() async {
+  Future<String> signOut() async {
     try {
       await auth.signOut();
       return "Success";
-    } on FirebaseAuthException catch(e){
+    } on FirebaseAuthException catch (e) {
       return e.message;
     } catch (e) {
       rethrow;
